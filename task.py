@@ -1,5 +1,7 @@
 import smtplib
 import time
+from email.message import EmailMessage
+
 import pyautogui
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -32,37 +34,29 @@ for i in range(10):
     copy_url = driver.find_element(By.XPATH, "//button[normalize-space()='Copy Room URL']")
     copy_url.click()
     time.sleep(4)
+    message = clipboard.paste()
 
-    new_URL = clipboard.paste()
+    msg = EmailMessage()
 
-    try:
-        # Create your SMTP session
-        smtp = smtplib.SMTP('smtp.gmail.com', 587)
+    msg['Subject'] = 'Hello'
 
-        # Use TLS to add security
-        smtp.starttls()
-
-        # User Authentication
-        smtp.login("nimranasir301@gmail.com", "bpcqslovwihohelm")
-
-        # Defining The Message
-        message = new_URL
-
-        # Sending the Email
-        smtp.sendmail("nimranasir301@gmail.com", "nimranasir254@gmail.com", message)
-
-        # Terminating the session
-        smtp.quit()
-        print("Email sent successfully!")
-
-    except Exception as ex:
-        print("Something went wrong....", ex)
+    msg['From'] = 'Nimra'
+    msg['To'] = 'nimranasir254@gmail.com',
+    msg.set_content(message)
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login("nimranasir301@gmail.com", "bpcqslovwihohelm")
+    server.send_message(msg)
+    server.quit()
 
 #New Browser open(Firefox)
     options = webdriver.FirefoxOptions()
     options.set_preference("media.navigator.permission.disabled", True)
     driver1 = webdriver.Firefox(options=options,executable_path=r"C:\Program Files (x86)\geckodriver.exe")
-    driver1.get(new_URL)
+
+    driver1.get(message)
     time.sleep(4)
 
     name1 = driver1.find_element(By.XPATH, "//input[@id='username']")
@@ -129,4 +123,4 @@ for i in range(10):
         pyautogui.press("u")
         pyautogui.press("?")
         pyautogui.press("enter")
-        time.sleep(25)
+        time.sleep(30)
