@@ -23,7 +23,6 @@ for i in range(10):
     driver.maximize_window()
     driver.get('https://meet.vdotok.com/?t=1654156110537')
     driver.implicitly_wait(5)
-    //  hhjhj
 
 
     name = driver.find_element(By.XPATH, "//input[@id='username']")
