@@ -129,4 +129,4 @@ for i in range(10):
         pyautogui.press("u")
         pyautogui.press("?")
         pyautogui.press("enter")
-        time.sleep(20)
+        time.sleep(25)
