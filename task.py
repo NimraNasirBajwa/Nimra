@@ -1,7 +1,6 @@
 import smtplib
 import time
 from email.message import EmailMessage
-
 import pyautogui
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -38,7 +37,7 @@ for i in range(10):
 
     msg = EmailMessage()
 
-    msg['Subject'] = 'Hello'
+    msg['Subject'] = 'Vdotok_link'
 
     msg['From'] = 'Nimra'
     msg['To'] = 'nimranasir254@gmail.com',
@@ -52,6 +51,7 @@ for i in range(10):
     server.quit()
 
 #New Browser open(Firefox)
+
     options = webdriver.FirefoxOptions()
     options.set_preference("media.navigator.permission.disabled", True)
     driver1 = webdriver.Firefox(options=options,executable_path=r"C:\Program Files (x86)\geckodriver.exe")
@@ -76,7 +76,6 @@ for i in range(10):
         pyautogui.press("enter")
         pyautogui.press("h")
         pyautogui.press("i")
-
         pyautogui.press("enter")
         pyautogui.press("H")
         pyautogui.press("o")
@@ -123,4 +122,4 @@ for i in range(10):
         pyautogui.press("u")
         pyautogui.press("?")
         pyautogui.press("enter")
-        time.sleep(35)
+        time.sleep(30)
